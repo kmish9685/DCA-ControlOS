@@ -1,0 +1,35 @@
+[
+  {
+    "timestamp": "2026-01-09T19:13:43.774097",
+    "actor": "SYSTEM",
+    "action": "VALIDATE",
+    "case_id": 1001,
+    "metadata": {
+      "result": "breach"
+    },
+    "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "hash": "1e9c0c6f1b5d0e2901e506d26c2ca8beaed99a22ffbd5a6b4340b99338c7e1b7"
+  },
+  {
+    "timestamp": "2026-01-09T19:14:02.591610",
+    "actor": "SYSTEM",
+    "action": "VALIDATE",
+    "case_id": 1001,
+    "metadata": {
+      "result": "breach"
+    },
+    "prev_hash": "1e9c0c6f1b5d0e2901e506d26c2ca8beaed99a22ffbd5a6b4340b99338c7e1b7",
+    "hash": "79ca10ce882c30c0baf0ff12ddeaba81c4bc8bbc8275c8d83ddb254bbecbd967"
+  },
+  {
+    "timestamp": "2026-01-09T19:19:25.513429",
+    "actor": "SYSTEM",
+    "action": "VALIDATE",
+    "case_id": 1001,
+    "metadata": {
+      "result": "breach"
+    },
+    "prev_hash": "79ca10ce882c30c0baf0ff12ddeaba81c4bc8bbc8275c8d83ddb254bbecbd967",
+    "hash": "867d691ce089debf14e9fde5af7a3ad3148c459fee997b820d0df032cfe5953a"
+  }
+]

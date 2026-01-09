@@ -1,0 +1,192 @@
+PRODUCT REQUIREMENTS DOCUMENT (PRD)
+Product Name
+
+DCA-ControlOS
+(A Regulation-First, Contract-Aware AI Operating System for Debt Collection Agencies)
+
+1. Problem Statement
+
+FedEx manages thousands of overdue accounts via external DCAs. Current operations rely on emails, spreadsheets, and manual follow-ups, resulting in delayed recoveries, weak governance, SLA violations, and poor auditability. There is no enforceable, real-time control over DCA actions.
+
+2. Product Vision
+
+Build a digital, AI-powered governance platform that treats DCAs as programmable, regulated operators, enforcing SOPs and SLAs through executable contracts, predictive intelligence, and immutable audit trails.
+
+3. Goals (What success means)
+
+Enforce DCA contracts automatically (not manually)
+
+Predict SLA breaches before they happen
+
+Improve recovery predictability
+
+Create audit-ready, tamper-evident records
+
+Enable scalable, multi-DCA oversight
+
+4. In-Scope (Prototype Scope)
+
+This is a working vertical slice, not full enterprise rollout.
+
+Must-Have (Implemented)
+
+Case ingestion (dummy/synthetic data)
+
+Contract-as-code engine (rules enforced)
+
+AI model:
+
+Recovery probability
+
+SLA breach / compliance risk
+
+Auto-escalation logic
+
+Append-only audit log
+
+Working UI dashboard
+
+Out-of-Scope (Explained, not built)
+
+Payment gateway integration
+
+Real FedEx data
+
+Legal system integrations
+
+Multi-region deployment
+
+5. User Roles
+
+FedEx Admin
+
+Onboards DCAs
+
+Defines contracts & SLAs
+
+Monitors dashboards
+
+DCA Agent
+
+Views assigned cases
+
+Updates status
+
+Auditor (Read-only)
+
+Reviews immutable logs
+
+Checks SLA adherence
+
+6. Functional Requirements
+6.1 Case Management
+
+Create / view cases
+
+Attributes:
+
+Amount due
+
+Days overdue
+
+Customer type
+
+Assigned DCA
+
+Status
+
+6.2 Contract-as-Code Engine (Key Differentiator)
+
+Each DCA has a machine-readable contract (JSON/YAML)
+
+Contract defines:
+
+SLA timelines
+
+Required actions
+
+Escalation rules
+
+Penalty flags
+
+Engine validates every case update against rules
+
+6.3 AI / ML Components
+
+Model 1: Recovery Prediction
+
+Inputs: amount, age, customer type
+
+Output: recovery probability
+
+Model 2: Compliance Risk Prediction
+
+Inputs: DCA history, delays, case priority
+
+Output: SLA breach probability
+
+6.4 Automation & Escalation
+
+If SLA at risk → auto-flag
+
+If SLA breached → auto-escalate
+
+High-risk cases reassigned or highlighted
+
+6.5 Audit Trail
+
+Append-only logs
+
+Every action logged with:
+
+Timestamp
+
+Actor
+
+Rule triggered
+
+Before/after state
+
+Hash-chained for tamper evidence
+
+7. Non-Functional Requirements
+
+Role-based access
+
+Explainable AI outputs
+
+Scalable architecture (conceptual)
+
+Secure-by-design (least privilege)
+
+8. KPIs & Impact Metrics
+
+SLA breach rate ↓
+
+Average recovery time ↓
+
+Escalation volume ↓
+
+Audit readiness ↑
+
+Recovery predictability ↑
+
+9. Tech Stack (Prototype)
+
+Python
+
+Streamlit (UI)
+
+scikit-learn (ML)
+
+CSV / in-memory store
+
+GitHub (public, view access)
+
+10. Deliverables
+
+Working prototype (code)
+
+GitHub repository
+
+PPT mapped exactly to implementation

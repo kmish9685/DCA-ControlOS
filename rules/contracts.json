@@ -1,0 +1,36 @@
+{
+  "dca_configs": {
+    "DCA_ALPHA": {
+      "name": "Alpha Debt Solutions",
+      "sla_rules": [
+        {
+          "trigger_status": "New",
+          "max_days_allowed": 2,
+          "required_action": "Initial Contact",
+          "escalation_level": 1
+        },
+        {
+          "trigger_status": "In Progress",
+          "max_days_allowed": 10,
+          "required_action": "Follow up Call",
+          "escalation_level": 2
+        }
+      ]
+    },
+    "DCA_BETA": {
+      "name": "Beta Recovery Corp",
+      "sla_rules": [
+        {
+          "trigger_status": "New",
+          "max_days_allowed": 1,
+          "required_action": "Immediate Skip Trace",
+          "escalation_level": 2
+        }
+      ]
+    }
+  },
+  "global_settings": {
+    "high_risk_threshold": 0.7,
+    "critical_amount": 10000
+  }
+}
