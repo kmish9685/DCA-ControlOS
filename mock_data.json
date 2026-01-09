@@ -1,0 +1,26 @@
+[
+    {
+        "case_id": "#CAS-8842",
+        "dca_id": "Eagle Recovery",
+        "amount_due": 12400,
+        "sla_status": "OK",
+        "compliance_score": 0.98,
+        "recovery_prob": 0.85
+    },
+    {
+        "case_id": "#CAS-9021",
+        "dca_id": "Summit Partners",
+        "amount_due": 4500,
+        "sla_status": "Breached",
+        "compliance_score": 0.22,
+        "recovery_prob": 0.31
+    },
+    {
+        "case_id": "#CAS-7731",
+        "dca_id": "Omega Assets",
+        "amount_due": 31200,
+        "sla_status": "At Risk",
+        "compliance_score": 0.64,
+        "recovery_prob": 0.55
+    }
+]

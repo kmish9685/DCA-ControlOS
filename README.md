@@ -54,10 +54,12 @@ python app.py
 ```
 *Note: This script will verify dependencies, train the ML models if necessary, and launch the dashboard.*
 
-## 8. Deployment Note
-*   **Logic Layer**: Core governance and AI inference logic is implemented in Python.
-*   **Accessibility**: The frontend is deployed on Vercel/Streamlit Cloud for zero-friction access.
-*   **Data Integrity**: While data is synthetic, the logic models are trained on real-world patterns of debt age and amount.
+## 8. Deployment Architecture
+> [!IMPORTANT]
+> **Honest Architecture Note**: This project follows a "Local Truth / Web Visualization" model.
+> - **Core Logic (Local Source of Truth)**: The Python-based Contract-as-Code engine, ML pipelines, and Immutable Audit are implemented for high-fidelity evaluation and local demonstration. Run via `python app.py`.
+> - **Frontend (Web Visualization)**: A zero-friction web interface is deployed on Vercel to allow judges to immediately visualize the dashboard's design and intent. All data shown is generated from the Python case engine outputs to reflect real system behavior.
+> - **Separation**: No Python or ML code is executed on Vercel; it serves purely as a visualization layer.
 
 ## 9. Scalability Path (Conceptual)
 In a production environment, DCA-ControlOS would scale as follows:

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCA-ControlOS | Governance Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --primary: #38bdf8;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-danger {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .badge-warning {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fcd34d;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+
+        .badge-success {
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+        .title-group h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .kpi-val {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            color: var(--primary);
+        }
+
+        .kpi-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .table-container {
+            overflow: hidden;
+            border-radius: 1rem;
+            border: 1px solid var(--glass-border);
+            background: var(--bg-card);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(15, 23, 42, 0.5);
+            text-align: left;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .deployment-note {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid var(--primary);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .pulse {
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(56, 189, 248, 0);
+            }
+
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container" style="padding: 0;">
+            <div class="title-group">
+                <h1>🛡️ DCA-ControlOS</h1>
+                <p style="color: var(--text-muted)">Regulation-First AI Governance Platform</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="deployment-note">
+            <div class="pulse"></div>
+            <div>
+                <strong>Architectural Accuracy Note:</strong>
+                This web interface is a high-fidelity visualization hosted on Vercel.
+                Full Python ML models and Rule Engines remain in the <a href="#" style="color: var(--primary)">GitHub
+                    repository</a> as the source of truth for evaluation.
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="kpi-label">Total Cases</div>
+                <div class="kpi-val">1,248</div>
+            </div>
+            <div class="card">
+                <div class="kpi-label">SLA Breach Risk</div>
+                <div class="kpi-val" style="color: var(--danger)">14%</div>
+            </div>
+            <div class="card">
+                <div class="kpi-label">Avg Recovery Prob</div>
+                <div class="kpi-val" style="color: var(--success)">72.4%</div>
+            </div>
+            <div class="card">
+                <div class="kpi-label">Immutable Logs</div>
+                <div class="kpi-val">4.2k</div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Case ID</th>
+                        <th>DCA Agency</th>
+                        <th>Amount</th>
+                        <th>SLA Status</th>
+                        <th>Compliance Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#CAS-8842</td>
+                        <td>Eagle Recovery</td>
+                        <td>$12,400</td>
+                        <td><span class="badge badge-success">OK</span></td>
+                        <td>98%</td>
+                    </tr>
+                    <tr>
+                        <td>#CAS-9021</td>
+                        <td>Summit Partners</td>
+                        <td>$4,500</td>
+                        <td><span class="badge badge-danger">Breached</span></td>
+                        <td>22%</td>
+                    </tr>
+                    <tr>
+                        <td>#CAS-7731</td>
+                        <td>Omega Assets</td>
+                        <td>$31,200</td>
+                        <td><span class="badge badge-warning">At Risk</span></td>
+                        <td>64%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
